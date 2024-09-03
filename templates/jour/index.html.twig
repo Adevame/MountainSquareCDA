@@ -6,7 +6,9 @@
 
 {% block body %}
 	<h2 style="margin: 10vh auto 0; justify-content: center;">Jours</h2>
-	<section style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; align-content: space-evenly; height: 100vh;">
+	<section
+		style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; align-content: space-evenly; height: 100vh;">
+		{# Il faudra remplacer les boucles for ET supprimer les set quand les cruds seront finis / commencés #}
 		{% set k = 5 %}
 		{% for i in range(1, k) %}
 			<div style="display: flex; flex-direction: row; gap: 5%; margin: 0 auto; justify-content: center; padding: 2.5vh 0;">
