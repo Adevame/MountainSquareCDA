@@ -13,6 +13,7 @@ class JourController extends AbstractController
     {
         return $this->render('jour/index.html.twig', [
             'controller_name' => 'JourController',
+
         ]);
     }
 }
