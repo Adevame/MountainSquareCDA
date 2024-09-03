@@ -30,10 +30,17 @@ class Scene
     #[ORM\ManyToMany(targetEntity: DateHoraire::class, inversedBy: 'scenes')]
     private Collection $dateHoraire;
 
+    /**
+     * @var Collection<int, Jour>
+     */
+    #[ORM\ManyToMany(targetEntity: Jour::class, mappedBy: 'scene')]
+    private Collection $jourNumero;
+
     public function __construct()
     {
         $this->performers = new ArrayCollection();
         $this->dateHoraire = new ArrayCollection();
+        $this->jourNumero = new ArrayCollection();
     }
 
 
@@ -103,6 +110,33 @@ class Scene
     public function removeDateHoraire(DateHoraire $dateHoraire): static
     {
         $this->dateHoraire->removeElement($dateHoraire);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Jour>
+     */
+    public function getJourNumero(): Collection
+    {
+        return $this->jourNumero;
+    }
+
+    public function addJourNumero(Jour $jourNumero): static
+    {
+        if (!$this->jourNumero->contains($jourNumero)) {
+            $this->jourNumero->add($jourNumero);
+            $jourNumero->addScene($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJourNumero(Jour $jourNumero): static
+    {
+        if ($this->jourNumero->removeElement($jourNumero)) {
+            $jourNumero->removeScene($this);
+        }
 
         return $this;
     }
