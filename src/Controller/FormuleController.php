@@ -11,7 +11,7 @@ class FormuleController extends AbstractController
     #[Route('/formule', name: 'app_formule')]
     public function index(): Response
     {
-        return $this->render('formule/index.html.twig', [
+        return $this->render('formule/tarifs.html.twig', [
             'controller_name' => 'FormuleController',
         ]);
     }
