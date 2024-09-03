@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class SceneController extends AbstractController
+class FormuleController extends AbstractController
 {
-    #[Route('/scene', name: 'app_scene')]
+    #[Route('/formule', name: 'app_formule')]
     public function index(): Response
     {
-        return $this->render('scene/index.html.twig', [
-            'controller_name' => 'SceneController',
+        return $this->render('formule/tarifs.html.twig', [
+            'controller_name' => 'FormuleController',
         ]);
     }
 }
