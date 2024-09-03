@@ -5,19 +5,21 @@
 {% endblock %}
 
 {% block body %}
-	<h2 style="margin: 3vh auto 0; display: flex; justify-content: center;">Jour</h2>
-	<section style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; align-content: space-evenly; height: 95vh;">
+	<h2 style="margin: 10vh auto 0; justify-content: center;">Jours</h2>
+	<section style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; align-content: space-evenly; height: 100vh;">
 		{% set k = 5 %}
 		{% for i in range(1, k) %}
-			<div style="display: flex; flex-direction: row; gap: 5%; margin: 0 auto; justify-content: center; padding: 3vh 0;">
+			<div style="display: flex; flex-direction: row; gap: 5%; margin: 0 auto; justify-content: center; padding: 2.5vh 0;">
 				<h3 style="align-self: center;">Scene</h3>
 				{% set j = 3 %}
 				{% for i in range(1, j) %}
-					<div class="card" style="width: 20vw; flex-direction: row; height: 5rem;">
-						<img src="{{ asset('media/placeholder.jpg') }}" class="card-img-top" alt="placeholderForPerformer" style="width: 7vw;">
-						<div class="card-body">
+					<div class="card" style="width: 20vw; flex-direction: row; height: 6rem;">
+						<img src="{{ asset('media/placeholder.jpg') }}" class="card-img-top" alt="placeholderForPerformer" style="width: 10vw; height: 5.5rem; align-self: center;">
+						<div class="card-body" style="width: 12vw;">
 							<h5 class="card-title">Performer</h5>
-							<p class="card-text">Passage: Date + Heure</p>
+							<p class="card-text">Passage: Date
+								<br>
+								Heure</p>
 						</div>
 					</div>
 				{% endfor %}
