@@ -1,5 +1,4 @@
 body {
-    background-color: aliceblue;
     background-image: url("../media/concert.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -12,14 +11,14 @@ body {
     text-align: center;
     color: white;
     font-size: 96px;
-    padding: 25px;
+    padding-top: 40px;
 }
 .container-carteJours
 {
     display: flex;
     justify-content: space-around;
     padding-top: 15%;
-    opacity: 25%;
+    opacity: 30%;
 }
 .card-title
 {
