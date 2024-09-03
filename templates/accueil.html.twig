@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Accueil{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('styles/header.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://cdn.discordapp.com/attachments/1278983087845412916/1279044087504175126/logo_mountainsquare.png?ex=66d6f6a1&is=66d5a521&hm=58bc6eb9b95cadb76899930595c2eb7b905f3affe53c5dcf0379ef04f86cf865&" alt="Logo">
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            &#9776;
+        </button>
+        <nav>
+            <ul>
+                <li><a href="/accueil">Accueil</a></li>
+                <li><a href="/scene">Scènes</a></li>
+                <li><a href="/formule">Tarifs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="bakcground-Image">
+        {# <img src={{asset('media/concert.jpg')}} width ="100%"> #}
+    </div>
+    
+    <h1 class="accueilText m-5">Waouh ! ça danse ici !!</h1>
+
+    <div class="container-carteJours">
+        <div class="card text-center mt-5 opacity-75" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">Jour 1</h5>
+                <p class="card-text">Trailer des groupes ou chanteurs présents.</p>
+                <a href="/scene" class="btn btn-dark opacity-75">Voir</a>
+            </div>
+        </div>
+
+        <div class="card text-center mt-5 opacity-75" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">Jour 2</h5>
+                <p class="card-text">Trailer des groupes ou chanteurs présents.</p>
+                <a href="/scene" class="btn btn-dark opacity-75">Voir</a>
+            </div>
+        </div>
+
+        <div class="card text-center mt-5 opacity-75" style="width: 15rem;">
+            <div class="card-body">
+                <h5 class="card-title">Jour 3</h5>
+                <p class="card-text">Trailer des groupes ou chanteurs présents.</p>
+                <a href="/scene" class="btn btn-dark opacity-75">Voir</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('menu.js') }}"></script>
+</body>
+</html>
+{% endblock %}
