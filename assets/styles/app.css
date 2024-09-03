@@ -1,5 +1,4 @@
 body {
-    background-color: aliceblue;
     background-image: url("../media/concert.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -19,7 +18,7 @@ body {
     display: flex;
     justify-content: space-around;
     padding-top: 15%;
-    opacity: 25%;
+    opacity: 30%;
 }
 .card-title
 {
