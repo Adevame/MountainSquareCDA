@@ -29,4 +29,26 @@ body {
     color: black;
     font-weight: bold;
 }
-
+.form-register
+{
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+h1
+{
+    margin-top: 10%;
+    color: white;
+    text-align: center;
+}
+.btn
+{
+    border: 2px solid white;
+    margin-top: 10px;
+}
+.form-login
+{
+    color: white;
+    margin: 10%;
+}
