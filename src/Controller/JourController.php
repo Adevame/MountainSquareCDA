@@ -6,13 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class FormuleController extends AbstractController
+class JourController extends AbstractController
 {
-    #[Route('/formule', name: 'app_formule')]
+    #[Route('/jour', name: 'app_jour')]
     public function index(): Response
     {
-        return $this->render('formule/tarifs.html.twig', [
-            'controller_name' => 'FormuleController',
+        return $this->render('jour/index.html.twig', [
+            'controller_name' => 'JourController',
+
         ]);
     }
 }

@@ -27,9 +27,16 @@ class Performer
     #[ORM\ManyToOne(inversedBy: 'performers')]
     private ?DateHoraire $prestation = null;
 
+    /**
+     * @var Collection<int, Jour>
+     */
+    #[ORM\ManyToMany(targetEntity: Jour::class, mappedBy: 'performers')]
+    private Collection $jourNumero;
+
     public function __construct()
     {
         $this->affectation = new ArrayCollection();
+        $this->jourNumero = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -81,6 +88,33 @@ class Performer
     public function setPrestation(?DateHoraire $prestation): static
     {
         $this->prestation = $prestation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Jour>
+     */
+    public function getJourNumero(): Collection
+    {
+        return $this->jourNumero;
+    }
+
+    public function addJourNumero(Jour $jourNumero): static
+    {
+        if (!$this->jourNumero->contains($jourNumero)) {
+            $this->jourNumero->add($jourNumero);
+            $jourNumero->addPerformer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJourNumero(Jour $jourNumero): static
+    {
+        if ($this->jourNumero->removeElement($jourNumero)) {
+            $jourNumero->removePerformer($this);
+        }
 
         return $this;
     }
