@@ -13,6 +13,7 @@
                 <li><a href="/","accueil">Accueil</a></li>
                 <li><a href="/jour">Scènes</a></li>
                 <li><a href="/formule">Tarifs</a></li>
+
                 {% if  not app.user %}
                     <li><a href="/login">Se connecter</a></li>                
                     <li><a href="/register">S'inscrire</a></li>
@@ -22,6 +23,7 @@
                 <li><a href="/logout">Déconnexion</a></li>
                 {% endif %}
                 
+
             </ul>
         </nav>
     </header>

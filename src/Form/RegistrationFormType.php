@@ -22,7 +22,9 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
+
                         'message' => 'Accepter nos conditions',
+
                     ]),
                 ],
             ])
@@ -33,11 +35,13 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
+
                         'message' => 'Champs vide, veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
                         'minMessage' => 'Votre mot de passe doit comporter {{ limit }} caractères',
+
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
