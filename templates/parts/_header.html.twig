@@ -3,21 +3,47 @@
 <body>
 	<header>
 		<div class="logo">
-			<img src="{{asset('media/logo_mountainsquare.png')}}" alt="Logo">
+			<img src="https://cdn.discordapp.com/attachments/1278983087845412916/1279044087504175126/logo_mountainsquare.png?ex=66d6f6a1&is=66d5a521&hm=58bc6eb9b95cadb76899930595c2eb7b905f3affe53c5dcf0379ef04f86cf865&" alt="Logo">
 		</div>
 		<button class="menu-toggle" aria-label="Toggle menu">
 			&#9776;
 		</button>
 		<nav>
 			<ul>
-				<li><a href="/" ,"accueil">Accueil</a></li>
-				<li><a href="/jour">Scènes</a></li>
-				<li><a href="/formule">Tarifs</a></li>
-				<li><a href="/register">S'inscrire</a></li>
-				<li><a href="/login">Se connecter</a></li>
+				<li>
+					<a href="/" ,"accueil">Accueil</a>
+				</li>
+				<li>
+					<a href="/jour">Scènes</a>
+				</li>
+				<li>
+					<a href="/formule">Tarifs</a>
+				</li>
+
+				{% if  not app.user %}
+					<li>
+						<a href="/login">Se connecter</a>
+					</li>
+					<li>
+						<a href="/register">S'inscrire</a>
+					</li>
+				{% endif %}
+
+				{% if app.user %}
+					<li>
+						<a href="/logout">Déconnexion</a>
+					</li>
+				{% endif %}
+
+				{# {% if is_granted ("ROLE_ADMIN") %} #}
+				<li>
+					<a href="/admin">Admin</a>
+				</li>
+				{# {% endif %} #}
+
+
 			</ul>
 		</nav>
 	</header>
+	<script src="{{ asset('menu.js') }}"></script>
 </body>
-
-<script src="{{ asset('menu.js') }}"></script>
