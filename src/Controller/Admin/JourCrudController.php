@@ -18,7 +18,6 @@ class JourCrudController extends AbstractCrudController
     {
         return
             [
-                // IdField::new('id'),
                 IntegerField::new('numero')
             ];
     }
