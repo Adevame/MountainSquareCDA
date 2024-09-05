@@ -14,12 +14,12 @@ class JourCrudController extends AbstractCrudController
         return Jour::class;
     }
 
-     public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName): iterable
     {
-        return 
-        [
-             IdField::new('id'),
-             IntegerField::new('numéro')
-        ];
+        return
+            [
+                // IdField::new('id'),
+                IntegerField::new('numero')
+            ];
     }
 }
