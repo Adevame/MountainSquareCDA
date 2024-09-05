@@ -33,6 +33,12 @@ class Performer
     #[ORM\ManyToMany(targetEntity: Jour::class, mappedBy: 'performers')]
     private Collection $jourNumero;
 
+    #[ORM\Column(length: 255)]
+    private ?string $typeMusique = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $youtube = null;
+
     public function __construct()
     {
         $this->affectation = new ArrayCollection();
@@ -115,6 +121,30 @@ class Performer
         if ($this->jourNumero->removeElement($jourNumero)) {
             $jourNumero->removePerformer($this);
         }
+
+        return $this;
+    }
+
+    public function getTypeMusique(): ?string
+    {
+        return $this->typeMusique;
+    }
+
+    public function setTypeMusique(string $typeMusique): static
+    {
+        $this->typeMusique = $typeMusique;
+
+        return $this;
+    }
+
+    public function getYoutube(): ?string
+    {
+        return $this->youtube;
+    }
+
+    public function setYoutube(string $youtube): static
+    {
+        $this->youtube = $youtube;
 
         return $this;
     }
