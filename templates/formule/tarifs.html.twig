@@ -11,44 +11,55 @@
 			<h1>Tarifs :</h1>
 		</div>
 		<div class="container2">
-			<div class="card">
-				<div class="card-content">
-					<h2>Pass full premium+ :</h2>
-					<p>Les 3 jours compris, avec accés au 5 scènes.</p>
-					<button>En savoir plus</button>
+			{% for formule in formules %}
+    			<div class="card">
+					<div class="card-content">
+						<h2>{{ formule.nom }}</h2>
+						<p>{{ formule.description }}</p>
+						{% if app.user %}
+    					<a href="{{ path('formule_add', {'id': formule.id}) }}">ajouter au panier</a>
+						{% else %}
+							<p>Vous devez vous connecter pour pouvoir acheter vos billets</p>
+						{% endif %}
+					</div>
 				</div>
-			</div>
-			<div class="card">
-				<div class="card-content">
-					<h2>Pass full days :</h2>
-					<p>Les 3 jours compris, avec accés à une scène par jour.</p>
-					<button>En savoir plus</button>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-content">
-					<h2>Pass one day premium+ :</h2>
-					<p>1 jour, avec accés à toutes les scènes.</p>
-					<button>En savoir plus</button>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
-		<div class="container3">
-			<div class="card">
-				<div class="card-content">
-					<h2>Pass 2 days premium+ :</h2>
-					<p>2 jours au choix, avec accés a toutes les scènes.</p>
-					<button>En savoir plus</button>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-content">
-					<h2>Pass 2 days :</h2>
-					<p>2 jours au choix, avec accès à une scène.</p>
-					<button>En savoir plus</button>
-				</div>
-			</div>
-		</div>
+		<h2 class="Vpanier">Votre panier</h2>
+			{% if items | length > 0 %}
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Formule</th>
+							<th>Prix</th>
+							<th>Quantité</th>
+							<th>Total</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for item in items %}
+						<tr>
+							<td>{{ item.formule.nom }}</td>
+							<td>{{ item.formule.tarif }}</td>
+							<td>{{ item.quantité }}</td>
+							<td>{{ item.formule.tarif * item.quantité }}</td>
+							<td><a href=" {{ path('panier_remove', {'id': item.formule.id})}} " class="btn btn-danger btn-lg"</a>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3">Total : </td>
+							<td>{{ total }}</td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+			{% else %}
+				<p class="panierVide">Votre panier est vide !</p>
+			{% endif %}
 	</body>
 	{% include "parts/_footer.html.twig" %}
 {% endblock %}
