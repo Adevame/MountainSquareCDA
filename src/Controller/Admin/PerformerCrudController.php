@@ -17,11 +17,9 @@ class PerformerCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('nom'),
-            TextField::new('Type de musique'),
+            TextField::new('TypeMusique'),
             TextField::new('youtube')
         ];
     }
-
 }

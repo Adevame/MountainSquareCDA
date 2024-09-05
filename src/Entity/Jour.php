@@ -16,7 +16,7 @@ class Jour
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $numéro = null;
+    private ?int $numero = null;
 
     /**
      * @var Collection<int, Scene>
@@ -48,14 +48,14 @@ class Jour
         return $this->id;
     }
 
-    public function getNuméro(): ?int
+    public function getNumero(): ?int
     {
-        return $this->numéro;
+        return $this->numero;
     }
 
-    public function setNuméro(int $numéro): static
+    public function setNumero(int $numero): static
     {
-        $this->numéro = $numéro;
+        $this->numero = $numero;
 
         return $this;
     }
