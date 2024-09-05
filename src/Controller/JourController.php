@@ -6,15 +6,12 @@ use App\Entity\Jour;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class JourController extends AbstractController
 {
-    #[Route('/jour/{id}', name: 'app_jour')]
-    public function show(Jour $jour, int $id): Response
+    #[Route('/jour', name: 'app_jour')]
+    public function index(Jour $jour): Response
     {
-        $jour = $this->getDoctrine()->getRepository(Jour);
-
         $performers = $jour->getPerformers();
 
         return $this->render('jour/index.html.twig', [

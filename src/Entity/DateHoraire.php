@@ -61,6 +61,14 @@ class DateHoraire
         return $this;
     }
 
+    public function __toString(): string
+    {
+        if ($this->time === null) {
+            return '';
+        }
+        return $this->time instanceof \DateTimeInterface ? $this->time->format('Y-m-d H:i') : '';
+    }
+
     /**
      * @return Collection<int, Performer>
      */
