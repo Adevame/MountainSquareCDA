@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Jour;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -9,11 +11,14 @@ use Symfony\Component\Routing\Attribute\Route;
 class JourController extends AbstractController
 {
     #[Route('/jour', name: 'app_jour')]
-    public function index(): Response
+    public function index(EntityManagerInterface $em): Response
     {
-        return $this->render('jour/index.html.twig', [
-            'controller_name' => 'JourController',
 
+        $jour = $em->getRepository(Jour::class)->findall();
+
+        return $this->render('jour/index.html.twig', [
+            'jour' => $jour,
+            'performers' => $jour->getPerformes(),
         ]);
     }
 }
