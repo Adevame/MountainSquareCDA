@@ -53,6 +53,13 @@ nav ul li a:hover {
     background-color: #777;
 }
 
+.accueilText {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    margin-top: 10px;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .menu-toggle {
