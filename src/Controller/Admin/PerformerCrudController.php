@@ -19,7 +19,7 @@ class PerformerCrudController extends AbstractCrudController
         return [
             IdField::new('id'),
             TextField::new('nom'),
-            TextField::new('Type de musique'),
+            TextField::new('Typemusique'),
             TextField::new('youtube')
         ];
     }
