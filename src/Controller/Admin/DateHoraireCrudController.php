@@ -17,6 +17,7 @@ class DateHoraireCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+
             DateTimeField::new('time')->setFormat('short', 'short')
                 ->setFormTypeOptions([
                     'widget' => 'single_text',
