@@ -5,7 +5,7 @@ let cards = document.querySelector('section');
 let overlay = document.getElementById('modalOverlay');
 
 function showModal() {
-    if(modalMockup.style.display == "none") {
+    if(modalMockup.style.display === "none") {
         overlay.style.display = "block";
         modalMockup.style.display = "grid";
         cards.style.pointerEvents = "none";
@@ -13,7 +13,7 @@ function showModal() {
 }
 
 function closModal() {
-    if (modalMockup.style.display == "grid") {
+    if (modalMockup.style.display === "grid") {
         overlay.style.display = "none";
         modalMockup.style.display = "none";
         cards.style.pointerEvents = "auto";
