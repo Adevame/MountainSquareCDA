@@ -2,8 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\DateHoraire;
 use App\Entity\Formule;
 use App\Entity\Jour;
+use App\Entity\Performer;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -50,7 +52,9 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Jours', 'fas fa-list', Jour::class);
-        yield MenuItem::linkToCrud('Formules', 'fas fa-list', Formule::class);
+        yield MenuItem::linkToCrud('Jours', 'fas fa-calendar-plus', Jour::class);
+        yield MenuItem::linkToCrud('Formules', 'fas fa-money-bill', Formule::class);
+        yield MenuItem::linkToCrud('Performer', 'fas fa-microphone', Performer::class);
+        yield MenuItem::linkToCrud('Date & Horaires', 'fas fa-clock', DateHoraire::class);
     }
 }
