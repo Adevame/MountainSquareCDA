@@ -2,28 +2,26 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Formule;
+use App\Entity\DateHoraire;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class FormuleCrudController extends AbstractCrudController
+class DateHoraireCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Formule::class;
+        return DateHoraire::class;
     }
-
 
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
-            TextField::new('nom'),
-            MoneyField::new('tarif')->setCurrency('EUR'),
-            TextField::new('description')
+            DateTimeField::new('time')            
         ];
     }
 }
