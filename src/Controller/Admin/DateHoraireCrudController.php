@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\DateHoraire;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 
 class DateHoraireCrudController extends AbstractCrudController
@@ -16,6 +17,7 @@ class DateHoraireCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+
             DateTimeField::new('time')->setFormat('short', 'short')
                 ->setFormTypeOptions([
                     'widget' => 'single_text',

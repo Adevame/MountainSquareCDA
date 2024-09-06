@@ -60,6 +60,11 @@ class Jour
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->numero;
+    }
+
     /**
      * @return Collection<int, Scene>
      */
