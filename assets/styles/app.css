@@ -72,3 +72,14 @@ h1
     text-align: center;
 
 }
+.message-alert
+{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    color: rgb(209, 102, 102);
+    background-color: rgba(0, 0, 0, 0.315);
+    border: rgb(211, 48, 48) solid 2px;
+    border-radius: 15px;
+    width: 15%;
+}

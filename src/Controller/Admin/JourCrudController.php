@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Jour;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class JourCrudController extends AbstractCrudController
@@ -14,12 +13,11 @@ class JourCrudController extends AbstractCrudController
         return Jour::class;
     }
 
-     public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName): iterable
     {
-        return 
-        [
-             IdField::new('id'),
-             IntegerField::new('numéro')
-        ];
+        return
+            [
+                IntegerField::new('numero')
+            ];
     }
 }
