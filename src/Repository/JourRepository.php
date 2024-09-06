@@ -17,7 +17,11 @@ class JourRepository extends ServiceEntityRepository
     }
     public function findByNumero($numero): ?Jour
     {
-        return $this->findOneBy(['numero' => $numero]);
+        return $this->createQueryBuilder('j')
+        ->where('j.numero = :numero')
+        ->setParameter('numero', $numero)
+        ->getQuery()
+        ->getOneOrNullResult();
     }
 
     //    /**

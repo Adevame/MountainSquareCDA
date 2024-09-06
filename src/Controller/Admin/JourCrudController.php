@@ -6,6 +6,7 @@ use App\Entity\Jour;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class JourCrudController extends AbstractCrudController
 {
@@ -18,7 +19,8 @@ class JourCrudController extends AbstractCrudController
     {
         return
             [
-                IntegerField::new('numero', 'Numéro')
+                IntegerField::new('numero', 'Numéro'),
+                AssociationField::new('scene', 'Scène'),
             ];
     }
 }

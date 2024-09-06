@@ -19,10 +19,14 @@ class JourController extends AbstractController
         }
 
         $performers = $jour->getPerformers();
+        $scenes = $jour->getScene();
+        $passages = $jour->getPassage();
 
         return $this->render('jour/index.html.twig', [
             'jour' => $jour,
             'performers' => $performers,
+            'scenes' => $scenes,
+            'passages' => $passages,
         ]);
     }
 }

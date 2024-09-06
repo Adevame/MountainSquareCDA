@@ -96,6 +96,15 @@ class Jour
         return $this;
     }
 
+//     public function getSceneNumeros(): array
+// {
+//     $sceneNumeros = [];
+//     foreach ($this->scenes as $scene) {
+//         $sceneNumeros[] = $scene->getNumero();
+//     }
+//     return $sceneNumeros;
+// }
+
     /**
      * @return Collection<int, Performer>
      */
