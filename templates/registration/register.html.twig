@@ -5,7 +5,7 @@
 
 {% block body %}
     <h1>Inscrit-toi !</h1>
-        <div class="form-register">
+        <div class="form-register" id="register">
             {{ form_errors(registrationForm) }}
 
             {{ form_start(registrationForm) }}
@@ -18,11 +18,9 @@
             <div class="label-password mb-3">
                 {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe :'}) }}
             </div>
-            {{ form_row(registrationForm.agreeTerms) }}
+            {{ form_row(registrationForm.agreeTerms, {label: 'Acceptez nos conditions'}) }}
 
         <button type="submit" class="btn-register">S'inscrire</button>
     {{ form_end(registrationForm) }}
 </div>
-    
-
 {% endblock %}
