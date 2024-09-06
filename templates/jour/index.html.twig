@@ -9,10 +9,10 @@
 {% block body %}
 	<h2 style="margin: 10vh auto 0; justify-content: center;">Jours</h2>
 	<section id="cards" style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; height: 100%;">
-		{% for numero in scenes %}
+		{% for scene in scenes %}
 			<div style="display: flex; gap: 5%; margin: 0 auto; justify-content: center; padding: 2vh 0;">
-				<h3 style="align-self: center;">Scene n°</h3>
-				{% for performer in performers %}
+				<h3 style="align-self: center;">Scene n°{{ scene.numero }}</h3>
+				{% for passage in scene.passages %}
 					<div class="card" style="width: 25vw; flex-direction: row; height: 6.5rem;">
 						<img src="{{ asset('media/placeholder.jpg') }}" class="card-img-top" alt="placeholderForPerformer" style="width: 7.5vw; height: 5.5rem; align-self: center;">
 						<div class="card-body" style="width: 15vw; padding: 0 10px 0 10px; display: grid;grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); grid-column-gap: 0px;grid-row-gap: 0px;">

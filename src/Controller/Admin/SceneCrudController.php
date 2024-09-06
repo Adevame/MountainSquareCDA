@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Scene;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -22,9 +21,7 @@ class SceneCrudController extends AbstractCrudController
     {
         return [
             IntegerField::new('numero', 'Numéro'),
-            // AssociationField::new('dateHoraire', 'Date et Horaire'),
-            // AssociationField::new('performers', 'Artiste(s)'),
-            // AssociationField::new('jourNumero', 'Jour'),
+            // AssociationField::new('')
         ];
     }
 }
