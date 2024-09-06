@@ -15,6 +15,10 @@ class JourRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Jour::class);
     }
+    public function findByNumero($numero): ?Jour
+    {
+        return $this->findOneBy(['numero' => $numero]);
+    }
 
     //    /**
     //     * @return Jour[] Returns an array of Jour objects

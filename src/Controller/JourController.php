@@ -5,15 +5,18 @@ namespace App\Controller;
 use App\Repository\JourRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 class JourController extends AbstractController
 {
-    #[Route('/jour', name: 'app_jour')]
-    public function index(JourRepository $jour, $id): Response
+    #[Route('/jour/{numero}', name: 'app_jour')]
+    public function index(JourRepository $jourRepository, $numero): Response
     {
+        $jour = $jourRepository->findByNumero($numero);
 
-        $jour = $jour->find('id', $id);
+        if (!$jour) {
+            throw $this->createNotFoundException('Jour not found');
+        }
 
         $performers = $jour->getPerformers();
 
