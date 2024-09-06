@@ -36,11 +36,18 @@ class Scene
     #[ORM\ManyToMany(targetEntity: Jour::class, mappedBy: 'scene')]
     private Collection $jourNumero;
 
+    /**
+     * @var Collection<int, Passage>
+     */
+    #[ORM\OneToMany(targetEntity: Passage::class, mappedBy: 'scene')]
+    private Collection $passages;
+
     public function __construct()
     {
         $this->performers = new ArrayCollection();
         $this->dateHoraire = new ArrayCollection();
         $this->jourNumero = new ArrayCollection();
+        $this->passages = new ArrayCollection();
     }
 
 
@@ -140,4 +147,40 @@ class Scene
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Passage>
+     */
+    public function getPassages(): Collection
+    {
+        return $this->passages;
+    }
+
+    public function addPassage(Passage $passage): static
+    {
+        if (!$this->passages->contains($passage)) {
+            $this->passages->add($passage);
+            $passage->setScene($this);
+        }
+
+        return $this;
+    }
+
+    public function removePassage(Passage $passage): static
+    {
+        if ($this->passages->removeElement($passage)) {
+            // set the owning side to null (unless already changed)
+            if ($passage->getScene() === $this) {
+                $passage->setScene(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return sprintf('Scene #%d', $this->numero ?? 'unknown');
+    }
+
 }
+
