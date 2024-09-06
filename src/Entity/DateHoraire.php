@@ -37,11 +37,18 @@ class DateHoraire
     #[ORM\ManyToMany(targetEntity: Jour::class, mappedBy: 'passage')]
     private Collection $jourNumero;
 
+    /**
+     * @var Collection<int, Passage>
+     */
+    #[ORM\OneToMany(targetEntity: Passage::class, mappedBy: 'horaires')]
+    private Collection $passages;
+
     public function __construct()
     {
         $this->performers = new ArrayCollection();
         $this->scenes = new ArrayCollection();
         $this->jourNumero = new ArrayCollection();
+        $this->passages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,6 +155,36 @@ class DateHoraire
     {
         if ($this->jourNumero->removeElement($jourNumero)) {
             $jourNumero->removePassage($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Passage>
+     */
+    public function getPassages(): Collection
+    {
+        return $this->passages;
+    }
+
+    public function addPassage(Passage $passage): static
+    {
+        if (!$this->passages->contains($passage)) {
+            $this->passages->add($passage);
+            $passage->setHoraires($this);
+        }
+
+        return $this;
+    }
+
+    public function removePassage(Passage $passage): static
+    {
+        if ($this->passages->removeElement($passage)) {
+            // set the owning side to null (unless already changed)
+            if ($passage->getHoraires() === $this) {
+                $passage->setHoraires(null);
+            }
         }
 
         return $this;

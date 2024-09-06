@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\DateHoraire;
 use App\Entity\Formule;
 use App\Entity\Jour;
+use App\Entity\Passage;
 use App\Entity\Performer;
 use App\Entity\Scene;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -58,5 +59,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Performer', 'fas fa-microphone', Performer::class);
         yield MenuItem::linkToCrud('Date & Horaires', 'fas fa-clock', DateHoraire::class);
         yield MenuItem::linkToCrud('Scenes', 'fas fa-eye', Scene::class);
+        yield MenuItem::linkToCrud('Passages', 'fas fa-music', Passage::class);
     }
 }

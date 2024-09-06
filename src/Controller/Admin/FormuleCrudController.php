@@ -19,10 +19,10 @@ class FormuleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('nom'),
-            MoneyField::new('tarif')->setCurrency('EUR'),
-            TextField::new('description')
+            // IdField::new('id'),
+            TextField::new('nom', 'Nom Formule'),
+            MoneyField::new('tarif', 'Tarif')->setCurrency('EUR'),
+            TextField::new('description', 'Description')
         ];
     }
 }

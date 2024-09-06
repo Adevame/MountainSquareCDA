@@ -8,13 +8,10 @@
 
 {% block body %}
 	<h2 style="margin: 10vh auto 0; justify-content: center;">Jours</h2>
-	<section
-		id="cards" style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; height: 100%;">
-		{# Il faudra remplacer les boucles for ET supprimer les set quand les cruds seront finis / commencés #}
-		{% set k = 5 %}
-		{% for i in (1.. k) %}
+	<section id="cards" style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; height: 100%;">
+		{% for numero in scenes %}
 			<div style="display: flex; gap: 5%; margin: 0 auto; justify-content: center; padding: 2vh 0;">
-				<h3 style="align-self: center;">Scene n°{{i}}</h3>
+				<h3 style="align-self: center;">Scene n°</h3>
 				{% for performer in performers %}
 					<div class="card" style="width: 25vw; flex-direction: row; height: 6.5rem;">
 						<img src="{{ asset('media/placeholder.jpg') }}" class="card-img-top" alt="placeholderForPerformer" style="width: 7.5vw; height: 5.5rem; align-self: center;">

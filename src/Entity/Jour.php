@@ -36,11 +36,18 @@ class Jour
     #[ORM\ManyToMany(targetEntity: DateHoraire::class, inversedBy: 'jourNumero')]
     private Collection $passage;
 
+    /**
+     * @var Collection<int, Passage>
+     */
+    #[ORM\OneToMany(targetEntity: Passage::class, mappedBy: 'jour')]
+    private Collection $passages;
+
     public function __construct()
     {
         $this->scene = new ArrayCollection();
         $this->performers = new ArrayCollection();
         $this->passage = new ArrayCollection();
+        $this->passages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -135,5 +142,13 @@ class Jour
         $this->passage->removeElement($passage);
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Passage>
+     */
+    public function getPassages(): Collection
+    {
+        return $this->passages;
     }
 }

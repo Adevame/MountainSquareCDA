@@ -39,10 +39,17 @@ class Performer
     #[ORM\Column(length: 255)]
     private ?string $youtube = null;
 
+    /**
+     * @var Collection<int, Passage>
+     */
+    #[ORM\OneToMany(targetEntity: Passage::class, mappedBy: 'performers')]
+    private Collection $passages;
+
     public function __construct()
     {
         $this->affectation = new ArrayCollection();
         $this->jourNumero = new ArrayCollection();
+        $this->passages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -150,6 +157,36 @@ class Performer
     public function setYoutube(string $youtube): static
     {
         $this->youtube = $youtube;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Passage>
+     */
+    public function getPassages(): Collection
+    {
+        return $this->passages;
+    }
+
+    public function addPassage(Passage $passage): static
+    {
+        if (!$this->passages->contains($passage)) {
+            $this->passages->add($passage);
+            $passage->setPerformers($this);
+        }
+
+        return $this;
+    }
+
+    public function removePassage(Passage $passage): static
+    {
+        if ($this->passages->removeElement($passage)) {
+            // set the owning side to null (unless already changed)
+            if ($passage->getPerformers() === $this) {
+                $passage->setPerformers(null);
+            }
+        }
 
         return $this;
     }
