@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240906092612 extends AbstractMigration
+final class Version20240906095231 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -26,6 +26,9 @@ final class Version20240906092612 extends AbstractMigration
         $this->addSql('ALTER TABLE passage ADD CONSTRAINT FK_2B258F67166053B4 FOREIGN KEY (scene_id) REFERENCES scene (id)');
         $this->addSql('ALTER TABLE passage ADD CONSTRAINT FK_2B258F67220C6AD0 FOREIGN KEY (jour_id) REFERENCES jour (id)');
         $this->addSql('ALTER TABLE date_horaire CHANGE time time DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\'');
+        $this->addSql('ALTER TABLE jour CHANGE numéro numero INT NOT NULL');
+        $this->addSql('ALTER TABLE performer ADD type_musique VARCHAR(255) NOT NULL, ADD youtube VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE user ADD name VARCHAR(50) NOT NULL');
     }
 
     public function down(Schema $schema): void
@@ -37,5 +40,8 @@ final class Version20240906092612 extends AbstractMigration
         $this->addSql('ALTER TABLE passage DROP FOREIGN KEY FK_2B258F67220C6AD0');
         $this->addSql('DROP TABLE passage');
         $this->addSql('ALTER TABLE date_horaire CHANGE time time DATETIME NOT NULL');
+        $this->addSql('ALTER TABLE performer DROP type_musique, DROP youtube');
+        $this->addSql('ALTER TABLE jour CHANGE numero numéro INT NOT NULL');
+        $this->addSql('ALTER TABLE user DROP name');
     }
 }
