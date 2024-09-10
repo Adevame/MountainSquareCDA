@@ -27,6 +27,7 @@
 		</div>
 		<h2 class="Vpanier">Votre panier</h2>
 			{% if items | length > 0 %}
+			<div class="table-container">
 				<table class="styled-table">
 					<thead>
 						<tr>
@@ -57,6 +58,7 @@
 						</tr>
 					</tfoot>
 				</table>
+				</div>
 			{% else %}
 				<p class="panierVide">Votre panier est vide !</p>
 			{% endif %}

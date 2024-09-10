@@ -36,8 +36,9 @@ nav ul {
     display: flex;
 }
 
-nav ul li {
-    margin-left: 20px;
+nav ul li 
+{
+   margin: 8px;
 }
 
 nav ul li a {
@@ -52,7 +53,19 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #777;
 }
-
+button
+{
+    background-color: #555;
+    border-radius: 5px;
+    color: white;
+    padding: 6px;
+    margin: 0px;
+    transition: background-color 0.3s ;
+}
+.btn-jour
+{
+    border: none;
+}
 .accueilText {
     display: flex;
     align-items: center;

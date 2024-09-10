@@ -18,18 +18,30 @@ class FormuleController extends AbstractController
 
         $panierWithData = [];
 
-        foreach($panier as $id => $quantity){
-            $panierWithData[] = [
-                'formule' => $formuleRepository->find($id),
-                'quantité' => $quantity
-            ];
+        foreach($panier as $id => $quantity) {
+            $formule = $formuleRepository->find($id);
+            
+            if ($formule !== null) {
+                $panierWithData[] = [
+                    'formule' => $formule,
+                    'quantité' => $quantity
+                ];
+            } else {
+                // Si la formule n'existe pas, vous pouvez gérer cette situation
+                // Par exemple, supprimer l'élément du panier ou afficher un message
+            }
         }
 
         $total = 0;
 
         foreach($panierWithData as $item) {
-            $totalItem = $item['formule']->getTarif() * $item['quantité'];
-            $total += $totalItem;
+            if ($item['formule'] !== null) {
+                $totalItem = $item['formule']->getTarif() * $item['quantité'];
+                $total += $totalItem;
+            } else {
+                // Gérez le cas où la formule n'est pas trouvée (facultatif)
+                // Par exemple, vous pouvez ignorer cet élément ou afficher un message d'erreur
+            }
         }
 
         return $this->render('formule/tarifs.html.twig', [
