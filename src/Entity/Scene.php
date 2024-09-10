@@ -36,11 +36,18 @@ class Scene
     #[ORM\ManyToMany(targetEntity: Jour::class, mappedBy: 'scene')]
     private Collection $jourNumero;
 
+    /**
+     * @var Collection<int, Passage>
+     */
+    #[ORM\ManyToMany(targetEntity: Passage::class, inversedBy: 'scenes')]
+    private Collection $passages;
+
     public function __construct()
     {
         $this->performers = new ArrayCollection();
         $this->dateHoraire = new ArrayCollection();
         $this->jourNumero = new ArrayCollection();
+        $this->passages = new ArrayCollection();
     }
 
 
@@ -145,4 +152,33 @@ class Scene
 
         return $this;
     }
+
+    public function getPassageNumero(Passage $passageNumero) :Collection
+    {
+        return $this->passageNumero;
+    }
+
+    /**
+     * @return Collection<int, Passage>
+     */
+    public function getPassages(): Collection
+    {
+        return $this->passages;
+    }
+
+    public function addPassage(Passage $passage): static
+    {
+        if (!$this->passages->contains($passage)) {
+            $this->passages->add($passage);
+        }
+
+        return $this;
+    }
+
+    public function removePassage(Passage $passage): static
+    {
+        $this->passages->removeElement($passage);
+
+        return $this;
+    } 
 }
