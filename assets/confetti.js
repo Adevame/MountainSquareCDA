@@ -1,6 +1,12 @@
 import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
-function bienvenue() {
-    confetti()
+function bienvenue(){
+    confetti();
 }
-window.getElementById('confetti').addEventListener(bienvenue);
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    const userConnecte = document.getElementById('confetti');
+    if (userConnecte) {
+        bienvenue();
+    }
+})

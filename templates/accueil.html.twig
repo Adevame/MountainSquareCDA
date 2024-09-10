@@ -7,8 +7,8 @@
 		{% if app.user %}
 			<h2 class="message-bienv" id="confetti">
 				<i class="fa-solid fa-music"></i>Bonjour{{app.user.name}}<i class="fa-solid fa-music"></i>
+				<script src="{{asset('confetti.js')}}" type="module"></script>
 			</h2>
-			<script src="{{asset('confetti.js')}}" type="module"></script>
 		{% endif %}
 		<div class="cardC">
 			{% for jour in jours %}
