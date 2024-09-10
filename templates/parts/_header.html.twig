@@ -16,13 +16,15 @@
 				<li>
 					<a href="/" ,"accueil">Accueil</a>
 				</li>
-				<li>
-					<a href="/jour">Scènes</a>
-				</li>
+  				<button class="btn-jour dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Jours</button>
+ 					<ul class="dropdown-menu">
+    					<li><a class="dropdown-item" href="{{path('app_jour', {'numero': 1})}}">Jour 1</a></li>
+    					<li><a class="dropdown-item" href="{{path('app_jour', {'numero': 2})}}">Jour 2</a></li>
+    					<li><a class="dropdown-item" href="{{path('app_jour', {'numero': 3})}}">Jour 3</a></li>
+  					</ul>
 				<li>
 					<a href="/formule">Tarifs</a>
 				</li>
-
 				{% if  not app.user %}
 					<li>
 						<a href="/login">Se connecter</a>
@@ -43,8 +45,6 @@
 					<a href="/admin">Admin</a>
 				</li>
 				{# {% endif %} #}
-
-
 			</ul>
 		</nav>
 	</header>
