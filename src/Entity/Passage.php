@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PassageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PassageRepository::class)]
@@ -23,14 +25,21 @@ class Passage
 
     #[ORM\ManyToOne(inversedBy: 'passages')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Scene $scene = null;
-
-    #[ORM\ManyToOne(inversedBy: 'passages')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Jour $jour = null;
 
     #[ORM\Column]
     private ?int $numero = null;
+
+    /**
+     * @var Collection<int, Scene>
+     */
+    #[ORM\ManyToMany(targetEntity: Scene::class, mappedBy: 'passages')]
+    private Collection $scenes;
+
+    public function __construct()
+    {
+        $this->scenes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -93,6 +102,33 @@ class Passage
     public function setNumero(int $numero): static
     {
         $this->numero = $numero;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Scene>
+     */
+    public function getScenes(): Collection
+    {
+        return $this->scenes;
+    }
+
+    public function addScene(Scene $scene): static
+    {
+        if (!$this->scenes->contains($scene)) {
+            $this->scenes->add($scene);
+            $scene->addPassage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScene(Scene $scene): static
+    {
+        if ($this->scenes->removeElement($scene)) {
+            $scene->removePassage($this);
+        }
 
         return $this;
     }

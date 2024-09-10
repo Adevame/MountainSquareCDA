@@ -21,7 +21,6 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 //vérif du mail
-                'mapped'=> false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Champ vide, veuillez entrer un adresse mail'
