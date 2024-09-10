@@ -1,24 +1,32 @@
-let btn1 = document.getElementById("modalOn");
-let modalMockup = document.getElementById("modalMockup");
-let btn2 = document.getElementById("modalOff");
-let cards = document.querySelector('section');
-let overlay = document.getElementById('modalOverlay');
+document.addEventListener('DOMContentLoaded', function () {
+    let currentOpenModal = null;
 
-function showModal() {
-    if(modalMockup.style.display === "none") {
-        overlay.style.display = "block";
-        modalMockup.style.display = "grid";
-        cards.style.pointerEvents = "none";
-    }
-}
+    document.querySelectorAll('[id^="modalOn_"]').forEach(btn => {
+        btn.addEventListener("click", function() {
+            let passageId = this.id.split("_")[1]; 
+            let modalMockup = document.getElementById(`modalMockup_${passageId}`);
+            let overlay = document.getElementById('modalOverlay');
+            
+            overlay.style.display = "block";
+            
+            if (currentOpenModal && currentOpenModal !== modalMockup) {
+                currentOpenModal.style.display = "none";
+            }
+            
+            modalMockup.style.display = "grid";
+            
+            currentOpenModal = modalMockup;
+        });
+    });
 
-function closModal() {
-    if (modalMockup.style.display === "grid") {
+    document.getElementById('modalOff').addEventListener("click", function() {
+        let overlay = document.getElementById('modalOverlay');
+        
+        if (currentOpenModal) {
+            currentOpenModal.style.display = "none";
+            currentOpenModal = null;
+        }
+        
         overlay.style.display = "none";
-        modalMockup.style.display = "none";
-        cards.style.pointerEvents = "auto";
-    }
-}
-
-btn1.addEventListener("click", showModal);
-btn2.addEventListener("click", closModal);
+    });
+});

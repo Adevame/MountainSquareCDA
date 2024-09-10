@@ -158,7 +158,7 @@ class Scene
         return $this->passageNumero;
     }
 
-    /**
+     /**
      * @return Collection<int, Passage>
      */
     public function getPassages(): Collection
@@ -170,6 +170,7 @@ class Scene
     {
         if (!$this->passages->contains($passage)) {
             $this->passages->add($passage);
+            $passage->setScene($this);
         }
 
         return $this;
@@ -177,8 +178,12 @@ class Scene
 
     public function removePassage(Passage $passage): static
     {
-        $this->passages->removeElement($passage);
+        if ($this->passages->removeElement($passage)) {
+            if ($passage->getScene() === $this) {
+                $passage->setScene(null);
+            }
+        }
 
         return $this;
-    } 
+    }
 }
