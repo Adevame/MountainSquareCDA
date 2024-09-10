@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10%;
 }
 .accueilText
 {
@@ -23,8 +23,14 @@ body {
 {
     display: flex;
     justify-content: space-around;
-    padding-top: 10%;
     opacity: 30%;
+    margin-top: 150px;
+}
+.cardC{
+    display:flex;
+    flex-direction: row;   
+    gap: 5vw; 
+
 }
 .card-title
 {

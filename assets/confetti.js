@@ -1,12 +1,24 @@
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
-
-function bienvenue(){
-    confetti();
-}
-
-window.addEventListener('DOMContentLoaded', ()=>{
-    const userConnecte = document.getElementById('confetti');
-    if (userConnecte) {
-        bienvenue();
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname === "/", "accueil") {
+      confetti({
+        origin: {
+          x: 0.1,
+          y: 0.9,
+        },
+        particleCount: 700,
+        zIndex: 1,
+        spread: 100,
+        ticks: 500,
+      });
+      confetti({
+        origin: {
+          x: 0.9,
+          y: 0.9,
+        },
+        particleCount: 700,
+        zIndex: 1,
+        spread: 100,
+        ticks: 500,
+      });
     }
-})
+  });
