@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/", "accueil") {
+    if (window.location.pathname === "/") {
       confetti({
         origin: {
           x: 0.1,
           y: 0.9,
         },
-        particleCount: 700,
+        particleCount: 800,
         zIndex: 1,
-        spread: 100,
+        spread: 120,
         ticks: 500,
       });
       confetti({
@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
           x: 0.9,
           y: 0.9,
         },
-        particleCount: 700,
+        particleCount: 800,
         zIndex: 1,
-        spread: 100,
+        spread: 120,
         ticks: 500,
       });
-    }
+    };
   });
