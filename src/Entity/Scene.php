@@ -155,7 +155,7 @@ class Scene
 
     public function getPassageNumero(Passage $passageNumero) :Collection
     {
-        return $this->passageNumero;
+        return $this->$passageNumero;
     }
 
     /**

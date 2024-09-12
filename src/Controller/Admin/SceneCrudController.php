@@ -21,7 +21,6 @@ class SceneCrudController extends AbstractCrudController
     {
         return [
             IntegerField::new('numero', 'Numéro'),
-            // AssociationField::new('')
         ];
     }
 }
