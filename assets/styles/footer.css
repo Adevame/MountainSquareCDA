@@ -18,11 +18,12 @@ footer {
     position: relative;
     z-index: 9;
     background-color: #333;
+
     height: 9vh;
 }
 
 footer::after{
-    content: "Ce site a été créer dans le cadre de la formation CDA du centre de Saint-Laurent-Blangy";
+    content: "Ce site a été créé dans le cadre de la formation CDA du centre de Saint-Laurent-Blangy/SOFIP";
     background-color: #ee7203;
     position: absolute;
     z-index: -1;
@@ -35,5 +36,9 @@ footer::after{
 
 footer p {
     color: white;
+}
+
+footer div p {
+    background-color: #ee7203;
 
 }
