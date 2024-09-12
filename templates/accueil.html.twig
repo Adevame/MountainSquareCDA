@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block title %}Accueil
+{% endblock %}
+{% block body %}
+	<div class="Bcontainer">
+		<h1 class="accueilText">Waouh ! ça danse ici !!</h1>
+		{% if app.user %}
+			<h2 class="message-bienv" id="confetti">
+				<i class="fa-solid fa-music"></i> Bonjour {{app.user.name}} <i class="fa-solid fa-music"></i>
+				<script src="{{asset('confetti.js')}}" type="module"></script>
+			</h2>
+		{% endif %}
+		<div class="cardC">
+			{% for jour in jours %}
+				<div class="container-carteJours">
+					<div class="card text-center mt-5" style="width: 15rem;">
+						<div class="card-body">
+							<h5 class="card-title">Jour 1</h5>
+							<p class="card-text">Trailer des groupes ou chanteurs présents.</p>
+							<a href="{{path('app_jour', {'numero': jour.numero})}}" class="btn btn-dark">Voir</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

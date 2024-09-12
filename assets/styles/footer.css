@@ -1,0 +1,44 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    width: 100vw;
+    position: relative;
+    z-index: 9;
+    background-color: #333;
+
+    height: 9vh;
+}
+
+footer::after{
+    content: "Ce site a été créé dans le cadre de la formation CDA du centre de Saint-Laurent-Blangy/SOFIP";
+    background-color: #ee7203;
+    position: absolute;
+    z-index: -1;
+    height: fit-content;
+    width: 100%;
+    top: 65%;
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+    color: white;
+}
+
+footer div p {
+    background-color: #ee7203;
+
+}

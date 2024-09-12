@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MountainSquare - tarifs {% endblock %}
+
+{% block body %}
+	<link rel="stylesheet" href="{{ asset('styles/tarifs.css') }}">
+	<body>
+		<div class="container1">
+			<h1>Tarifs :</h1>
+		</div>
+		<div class="container2">
+			{% for formule in formules %}
+    			<div class="card">
+					<div class="card-content">
+						<h2>{{ formule.nom }}</h2>
+						<p>{{ formule.description }}</p>
+						{% if app.user %}
+    					<a href="{{ path('formule_add', {'id': formule.id}) }}">ajouter au panier</a>
+						{% else %}
+							<p>Vous devez vous connecter pour pouvoir acheter vos billets</p>
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<h2 class="Vpanier">Votre panier</h2>
+			{% if items | length > 0 %}
+			<div class="table-container">
+				<table class="styled-table">
+					<thead>
+						<tr>
+							<th>Formule</th>
+							<th>Prix</th>
+							<th>Quantité</th>
+							<th>Total</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for item in items %}
+						<tr>
+							<td>{{ item.formule.nom }}</td>
+							<td>{{ item.formule.tarif }}</td>
+							<td>{{ item.quantité }}</td>
+							<td>{{ item.formule.tarif * item.quantité }}</td>
+							<td><a href=" {{ path('panier_remove', {'id': item.formule.id})}} " class="btn btn-danger btn-lg"</a>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3">Total : </td>
+							<td>{{ total }}</td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+				</div>
+			{% else %}
+				<p class="panierVide">Votre panier est vide !</p>
+			{% endif %}
+	</body>
+{% endblock %}

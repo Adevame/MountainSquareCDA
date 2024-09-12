@@ -1,0 +1,251 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+h1
+{
+    color: white;
+}
+.container1 {
+    display: flex;
+    margin-top: 85px;
+}
+
+.container2 {
+    display: flex;
+}
+
+.container3 {
+    display: flex;
+    margin-top: 40px;
+}
+
+.container1{
+    font-size: 2em;
+}
+.card {
+    background-color: rgba(0, 0, 0, 0.616);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+    color: white;
+}
+
+.card-content p {
+    font-size: 1em;
+    color: white;
+    margin: 0 0 20px 0;
+}
+
+.card-content a {
+    background-color: #777;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.card-content a:hover {
+    background-color: #555;
+}
+
+.Vpanier {
+    color: white;
+    margin-top: 30px;
+}
+
+.panierVide {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr {
+    background-color: #f1f1f1;
+}
+
+.styled-table tfoot tr {
+    background-color: #f3f3f3;
+    font-weight: bold;
+}
+
+.styled-table .remove-btn {
+    color: #ff0000;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.styled-table .remove-btn:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .styled-table thead {
+        display: none; /* Hide the header on smaller screens */
+    }
+
+    .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .styled-table tr {
+        margin-bottom: 15px;
+    }
+
+    .styled-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .styled-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .container1 {
+        font-size: 1.5em;
+        margin-top: 50px;
+    }
+
+    .container2 {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .card {
+        width: 250px;
+        margin: 20px auto;
+    }
+
+    .styled-table {
+        font-size: 16px;
+    }
+
+    .Vpanier {
+        font-size: 1.2em;
+    }
+}
+
+/* Pour les téléphones (jusqu'à 767px) */
+@media only screen and (max-width: 767px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .container1 {
+        font-size: 1.2em;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .container2 {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .card-content h2 {
+        font-size: 1.3em;
+    }
+
+    .card-content p {
+        font-size: 0.9em;
+    }
+
+    .styled-table {
+        font-size: 14px;
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .styled-table thead, .styled-table tbody, .styled-table th, .styled-table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 10px;
+    }
+
+    .Vpanier {
+        font-size: 1em;
+    }
+
+    .panierVide {
+        font-size: 0.9em;
+        margin-bottom: 70px;
+    }
+}

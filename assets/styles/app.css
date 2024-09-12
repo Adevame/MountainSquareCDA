@@ -1,3 +1,175 @@
 body {
-    background-color: skyblue;
+    background-image: url("../media/concert.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+}
+.Bcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+.accueilText
+{
+    text-align: center;
+    color: white;
+    font-size: 96px;
+    padding-top: 40px;
+}
+.container-carteJours
+{
+    display: flex;
+    justify-content: space-around;
+    opacity: 30%;
+    margin-top: 150px;
+}
+.cardC{
+    display:flex;
+    flex-direction: row;   
+    gap: 5vw; 
+
+}
+.card-title
+{
+    font-weight: bold;
+}
+.card-text
+{
+    color: black;
+    font-weight: bold;
+}
+.form-register
+{
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+h1
+{
+    margin-top: 10%;
+    color: white;
+    text-align: center;
+}
+
+.btn-register
+{
+    border: 2px solid white;
+    background-color: rgba(255, 228, 196, 0.521);
+    padding: 5px;
+    border-radius: 10px;
+
+    margin-top: 10px;
+}
+.form-login
+{
+    color: white;
+    margin: 10%;
+}
+.btn-connexion
+{
+    margin-top: 15px;
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0.671);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+.message-bienv
+{
+    color: white;
+    text-align: center;
+
+}
+.message-alert
+{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    color: rgb(209, 102, 102);
+    background-color: rgba(0, 0, 0, 0.315);
+    border: rgb(211, 48, 48) solid 2px;
+    border-radius: 15px;
+    width: 15%;
+}
+
+/* Pour les tablettes (768px à 1024px) */
+@media only screen and (max-width: 1024px) {
+    .Bcontainer {
+        margin-top: 50px;
+    }
+
+    .accueilText {
+        font-size: 48px;
+        padding-top: 20px;
+    }
+
+    .container-carteJours {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5%;
+    }
+
+    .container-carteJours .card {
+        margin-bottom: 20px;
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+
+/* Pour les téléphones (jusqu'à 767px) */
+@media only screen and (max-width: 767px) {
+    body {
+        background-size: cover;
+        background-position: center top;
+    }
+
+    .Bcontainer {
+        margin-top: 30px;
+        padding: 10px;
+    }
+
+    .accueilText {
+        font-size: 36px;
+        padding-top: 10px;
+    }
+
+    .container-carteJours {
+        display: block;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+    .container-carteJours .card {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-text {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .message-bienv {
+        font-size: 1.2em;
+    }
 }
