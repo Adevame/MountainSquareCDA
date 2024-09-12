@@ -27,19 +27,12 @@ class Passage
     #[ORM\JoinColumn(nullable: false)]
     private ?Jour $jour = null;
 
+    #[ORM\ManyToOne(inversedBy: 'passages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Scene $scene = null;
+
     #[ORM\Column]
-    private ?int $numero = null;
-
-    /**
-     * @var Collection<int, Scene>
-     */
-    #[ORM\ManyToMany(targetEntity: Scene::class, mappedBy: 'passages')]
-    private Collection $scenes;
-
-    public function __construct()
-    {
-        $this->scenes = new ArrayCollection();
-    }
+    private ?int $numero = null;   
 
     public function getId(): ?int
     {
@@ -51,6 +44,7 @@ class Passage
         return $this->performers;
     }
 
+    
     public function setPerformers(?Performer $performers): static
     {
         $this->performers = $performers;
@@ -70,7 +64,7 @@ class Passage
         return $this;
     }
 
-    public function getScene(): ?Scene
+    public function getScene():?Scene
     {
         return $this->scene;
     }
@@ -78,7 +72,6 @@ class Passage
     public function setScene(?Scene $scene): static
     {
         $this->scene = $scene;
-
         return $this;
     }
 
@@ -106,30 +99,4 @@ class Passage
         return $this;
     }
 
-    /**
-     * @return Collection<int, Scene>
-     */
-    public function getScenes(): Collection
-    {
-        return $this->scenes;
-    }
-
-    public function addScene(Scene $scene): static
-    {
-        if (!$this->scenes->contains($scene)) {
-            $this->scenes->add($scene);
-            $scene->addPassage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeScene(Scene $scene): static
-    {
-        if ($this->scenes->removeElement($scene)) {
-            $scene->removePassage($this);
-        }
-
-        return $this;
-    }
 }
