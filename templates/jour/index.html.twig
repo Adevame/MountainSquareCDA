@@ -18,7 +18,7 @@
 				{% endfor %}
 				{% if scenePassages is not empty %}
 					{% for passage in scenePassages %}
-						<div class="card" style="width: 25vw; flex-direction: row; height: 6.5rem;">
+						<div class="card" style="width: 25vw; flex-direction: row; height: 20vh;">
 							<img src="{{ asset('media/placeholder.jpg') }}" class="card-img-top" alt="placeholderForPassage" style="width: 7.5vw; height: 5.5rem; align-self: center;">
 							<div class="card-body" style="width: 15vw; padding: 0 10px 0 10px; display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); grid-column-gap: 0px; grid-row-gap: 0px;">
 								<h5 class="card-title" style="max-width: fit-content; 1 / 1 / 2 / 2; margin-bottom: 0;">{{passage.performers.nom}}</h5>
@@ -29,7 +29,7 @@
 								<input type="button" value="Détails" class="btn btn-dark" id="modalOn_{{passage.performers.id}}" style="max-height: max-content; grid-area: 2 / 1 / 3 / 3; align-self: center;">
 							</div>
 						</div>
-						<div id="modalOverlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5); z-index: 5;">
+						<div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5); z-index: 5;">
 							<div class="card" id="modalMockup_{{passage.performers.id}}" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); grid-column-gap: 0px;grid-row-gap: 0px; justify-content: center; display: none; z-index: 6; margin-top: 2vh; background: white; width: 66%; align-self: center; border: 1rem solid white; position: absolute; top: 25vh; left: 20vw;">
 								<img class="card-img-top" src="{{ asset('media/placeholder.jpg') }}" alt="placeholderPerformer" style="align-self: start; grid-area: 1 / 1 / 4 / 2;">
 								<div class="card-body" style="text-align: center;">
