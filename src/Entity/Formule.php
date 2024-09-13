@@ -18,7 +18,7 @@ class Formule
     private ?string $nom = null;
 
     #[ORM\Column]
-    private ?float $tarif = null;
+    private ?int $tarif = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;

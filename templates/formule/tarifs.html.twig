@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}MountainSquare - tarifs {% endblock %}
+{% block title %}MountainSquare - tarifs
+{% endblock %}
 
 {% block body %}
 	<link rel="stylesheet" href="{{ asset('styles/tarifs.css') }}">
@@ -10,12 +11,14 @@
 		</div>
 		<div class="container2">
 			{% for formule in formules %}
-    			<div class="card">
+				<div class="card">
 					<div class="card-content">
 						<h2>{{ formule.nom }}</h2>
 						<p>{{ formule.description }}</p>
+						<p>Prix :
+							{{ formule.tarif }}</p>
 						{% if app.user %}
-    					<a href="{{ path('formule_add', {'id': formule.id}) }}">ajouter au panier</a>
+							<a href="{{ path('formule_add', {'id': formule.id}) }}">ajouter au panier</a>
 						{% else %}
 							<p>Vous devez vous connecter pour pouvoir acheter vos billets</p>
 						{% endif %}
@@ -24,7 +27,7 @@
 			{% endfor %}
 		</div>
 		<h2 class="Vpanier">Votre panier</h2>
-			{% if items | length > 0 %}
+		{% if items | length > 0 %}
 			<div class="table-container">
 				<table class="styled-table">
 					<thead>
@@ -37,28 +40,28 @@
 						</tr>
 					</thead>
 					<tbody>
-					{% for item in items %}
-						<tr>
-							<td>{{ item.formule.nom }}</td>
-							<td>{{ item.formule.tarif }}</td>
-							<td>{{ item.quantité }}</td>
-							<td>{{ item.formule.tarif * item.quantité }}</td>
-							<td><a href=" {{ path('panier_remove', {'id': item.formule.id})}} " class="btn btn-danger btn-lg"</a>
-							</td>
-						</tr>
-					{% endfor %}
+						{% for item in items %}
+							<tr>
+								<td>{{ item.formule.nom }}</td>
+								<td>{{ item.formule.tarif }}</td>
+								<td>{{ item.quantité }}</td>
+								<td>{{ item.formule.tarif * item.quantité }}</td>
+								<td>
+									<a href="{{path('panier_remove',{'id':item.formule.id})}}" class="btn btn-danger btn-lg">Suppr</a>
+								</td>
+							</tr>
+						</tbody>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="3">Total : </td>
-							<td>{{ total }}</td>
-							<td></td>
-						</tr>
-					</tfoot>
-				</table>
-				</div>
-			{% else %}
-				<p class="panierVide">Votre panier est vide !</p>
-			{% endif %}
+				</tr>
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3">Total panier :
+				</td>
+				<td>{{total}}</td>
+				<td></td>
+			</tr>
+		</tfoot>
 	</body>
-{% endblock %}
+</td></tr></tfoot></body></tbody></table></div>{% else %}<p class="panierVide">Votre panier est vide !</p>{% endif %}</body>{% endblock %}

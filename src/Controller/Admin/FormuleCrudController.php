@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Formule;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class FormuleCrudController extends AbstractCrudController
@@ -19,7 +19,7 @@ class FormuleCrudController extends AbstractCrudController
     {
         return [
             TextField::new('nom', 'Nom Formule'),
-            MoneyField::new('tarif', 'Tarif')->setCurrency('EUR'),
+            IntegerField::new('tarif', 'Tarif'),
             TextField::new('description', 'Description')
         ];
     }
